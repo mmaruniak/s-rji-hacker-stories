@@ -2,7 +2,7 @@ import React from "react";
 
 const welcome = {
   greeting: "Hey",
-  title: "React",
+  title: "React!",
 };
 
 function App() {

@@ -3,6 +3,7 @@
   background: #e0d6b8;
   display: -webkit-flex; /* Safari */
   display: flex; /* Standard syntax */
+  /* justify-content: space-between; */
 }
 
 .container span {

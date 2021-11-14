@@ -21,25 +21,33 @@ const restaurantList = [
 function App() {
   return (
     <div>
-      <h1>Hacker Stories</h1>
+      <Header />
       <label htmlFor="search">Search: </label>
       <input id="search" type="text" />
       <hr />
-      {restaurantList.map(function (item) {
-        return (
-          <div key={item.objectID} className="container">
-            <span>
-              <a href={item.url}>{item.title}</a>
-            </span>
-            <span>{item.location}</span>
-            <span>{item.name}</span>
-            <span>{item.stars}</span>
-            <span>{item.owner}</span>
-          </div>
-        );
-      })}
+      <RestaurantList />
     </div>
   );
+}
+
+function Header() {
+  return <h1>Lodwar Restaurants</h1>;
+}
+
+function RestaurantList() {
+  return restaurantList.map(function (item) {
+    return (
+      <div key={item.objectID} className="container">
+        <span>
+          <a href={item.url}>{item.title}</a>
+        </span>
+        <span>{item.location}</span>
+        <span>{item.name}</span>
+        <span>{item.stars}</span>
+        <span>{item.owner}</span>
+      </div>
+    );
+  });
 }
 
 export default App;

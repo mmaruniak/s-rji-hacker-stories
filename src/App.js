@@ -32,8 +32,8 @@ function App() {
   );
 }
 
-function List() {
-  return list.map(function (item) {
+const List = () =>
+  list.map(function (item) {
     return (
       <div key={item.objectID} className="container">
         <span>
@@ -45,6 +45,5 @@ function List() {
       </div>
     );
   });
-}
 
 export default App;

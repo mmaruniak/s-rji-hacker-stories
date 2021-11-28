@@ -8,6 +8,7 @@ const App = () => (
     <input id="search" type="text" />
     <hr />
     <Header />
+    <Header />
   </div>
 );
 

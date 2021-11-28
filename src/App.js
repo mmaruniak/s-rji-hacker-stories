@@ -12,7 +12,12 @@ const App = () => (
 );
 
 const Header = () => {
-  return <h2> React is fun!</h2>;
+  return (
+    <div>
+      <h2> React is fun!</h2>
+      <h3> React is fun!</h3>
+    </div>
+  );
 };
 
 export default App;

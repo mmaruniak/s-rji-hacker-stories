@@ -11,13 +11,11 @@ const App = () => (
   </div>
 );
 
-const Header = () => {
-  return (
-    <div>
-      <h2> React is fun!</h2>
-      <h3> React is fun!</h3>
-    </div>
-  );
-};
+const Header = () => (
+  <div>
+    <h2> React is fun!</h2>
+    <h3> React is fun!</h3>
+  </div>
+);
 
 export default App;

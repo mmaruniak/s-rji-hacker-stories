@@ -20,30 +20,26 @@ const list = [
   },
 ];
 
-function App() {
-  return (
-    <div>
-      <h1>Hacker Stories</h1>
-      <label htmlFor="search">Search: </label>
-      <input id="search" type="text" />
-      <hr />
-      <List />
-    </div>
-  );
-}
+const App = () => (
+  <div>
+    <h1>Hacker Stories</h1>
+    <label htmlFor="search">Search: </label>
+    <input id="search" type="text" />
+    <hr />
+    <List />
+  </div>
+);
 
 const List = () =>
-  list.map(function (item) {
-    return (
-      <div key={item.objectID} className="container">
-        <span>
-          <a href={item.url}>{item.title}</a>
-        </span>
-        <span>{item.author}</span>
-        <span>{item.num_comments}</span>
-        <span>{item.points}</span>
-      </div>
-    );
-  });
+  list.map((item) => (
+    <div key={item.objectID} className="container">
+      <span>
+        <a href={item.url}>{item.title}</a>
+      </span>
+      <span>{item.author}</span>
+      <span>{item.num_comments}</span>
+      <span>{item.points}</span>
+    </div>
+  ));
 
 export default App;

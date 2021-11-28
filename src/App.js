@@ -12,10 +12,13 @@ const App = () => (
 );
 
 const Header = () => {
+  const header1 = "React is fun!";
+  const header2 = "React is sometimes hard!";
+
   return (
     <div>
-      <h2> React is fun!</h2>
-      <h3> React is fun!</h3>
+      <h2> {header1} </h2>
+      <h3> {header2} </h3>
     </div>
   );
 };

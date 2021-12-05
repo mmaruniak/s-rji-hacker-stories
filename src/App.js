@@ -7,10 +7,13 @@ const App = () => (
     <label htmlFor="search">Search: </label>
     <input id="search" type="text" />
     <hr />
-    <Header title="React is fun" />
+    <Header1 title="React is fun" />
+    <Header2 title="But sometimes hard to learn" />
   </div>
 );
 
-const Header = (props) => <h1> {props.title}</h1>;
+const Header1 = (props) => <h1> {props.title}</h1>;
+
+const Header2 = (props) => <h2> {props.title}</h2>;
 
 export default App;

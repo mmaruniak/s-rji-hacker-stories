@@ -1,13 +1,17 @@
 import React from "react";
 
-function greetLion(lionName) {
-  return `Hello ${lionName}`;
-}
-
 function App() {
+  const [cityState, setCityState] = React.useState("London");
+
+  const handleButtonClick = () => {
+    //
+  };
+
   return (
     <div>
-      <h1>{greetLion("Mike")}</h1>
+      <h1>Set my favorite city </h1>
+      <input type="button" onClick={handleButtonClick} value="Set City"></input>
+      <h2>My favorite city is {cityState}</h2>
     </div>
   );
 }

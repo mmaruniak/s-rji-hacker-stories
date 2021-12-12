@@ -1,8 +1,11 @@
 import React from "react";
 
+const getCities = () => {
+  return ["London", "Miami", "Berlin", "Wiesbaden"];
+};
+
 function App() {
-  const cityArray = ["London", "New York", "Berlin", "Wiesbaden"];
-  const [city1, city2] = cityArray;
+  const [city1, city2] = getCities();
 
   return (
     <div>

@@ -1,14 +1,16 @@
 import React from "react";
 import "./App.css";
 
-const childMethod = () => console.log("I am the child");
-
-const parentMethod = (func) => {
-  console.log("I am the parent");
+const childComponent = (func) => {
+  console.log("I am the child calling my parent");
   func();
 };
 
-parentMethod(childMethod);
+const parentComponent = (func) => {
+  console.log("I am the parent");
+};
+
+childComponent(parentComponent);
 
 const App = () => {
   const stories = [

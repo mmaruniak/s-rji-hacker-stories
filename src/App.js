@@ -35,12 +35,12 @@ const App = () => {
   );
 };
 
-const Search = (props) => {
+const Search = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = React.useState("");
 
   const handleChange = (event) => {
     setSearchTerm(event.target.value);
-    props.onSearch(event);
+    onSearch(event);
   };
 
   return (
@@ -54,8 +54,8 @@ const Search = (props) => {
   );
 };
 
-const List = (props) =>
-  props.list.map((item) => (
+const List = ({ list }) =>
+  list.map((item) => (
     <div key={item.objectID} className="container">
       <span>
         <a href={item.url}>{item.title}</a>

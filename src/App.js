@@ -25,17 +25,21 @@ const App = () => {
     console.log(event.target.value);
   };
 
+  const handleBlur = (event) => {
+    console.log(`Blur ${event.target.value}`);
+  };
+
   return (
     <div>
       <h1>Hacker Stories</h1>
-      <Search onSearch={handleSearch} />
+      <Search onSearch={handleSearch} onBlur={handleBlur} />
       <hr />
       <List list={stories} />
     </div>
   );
 };
 
-const Search = ({ onSearch }) => {
+const Search = ({ onSearch, onBlur }) => {
   const [searchTerm, setSearchTerm] = React.useState("");
 
   const handleChange = (event) => {
@@ -43,10 +47,19 @@ const Search = ({ onSearch }) => {
     onSearch(event);
   };
 
+  const handleBlur = (event) => {
+    onBlur(event);
+  };
+
   return (
     <div>
       <label htmlFor="search">Search: </label>
-      <input id="search" type="text" onChange={handleChange} />
+      <input
+        id="search"
+        type="text"
+        onChange={handleChange}
+        onBlur={handleBlur}
+      />
       <p>
         Searching for <strong>{searchTerm}</strong>.
       </p>

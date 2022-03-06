@@ -14,18 +14,34 @@ const restaurantList = [
     location: "Lodwar",
     owner: "John Finch",
     stars: 5,
-    objectID: 0,
+    objectID: 1,
+  },
+  {
+    name: "Happy Monkey",
+    location: "Turkana",
+    owner: "John Price",
+    stars: 2,
+    objectID: 2,
+  },
+  {
+    name: "Evening Shadow",
+    location: "Marsabit",
+    owner: "Peter McKenzy",
+    stars: 4,
+    objectID: 3,
   },
 ];
 
 function App() {
+  const filteredCities = restaurantList.filter(function (city) {
+    return city.stars > 4;
+  });
+
   return (
     <div>
       <h1>Hacker Stories</h1>
-      <label htmlFor="search">Search: </label>
-      <input id="search" type="text" />
       <hr />
-      {restaurantList.map(function (item) {
+      {filteredCities.map(function (item) {
         return (
           <div key={item.objectID} className="container">
             <span>

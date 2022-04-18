@@ -1,8 +1,9 @@
 import React from "react";
 
 const Welcome = {
+  name: "Thomas",
   greeting: "Hey",
-  title: "Thomas!",
+  title: "Mr.",
 };
 
 const Address = {
@@ -11,11 +12,17 @@ const Address = {
 };
 
 function App() {
+  // spread operator
   const welcomeAddress = { ...Welcome, ...Address };
+
+  //rest operator
+  const { greeting, ...addressWithTitle } = welcomeAddress;
+
   console.log(welcomeAddress);
   return (
     <div>
-      {welcomeAddress.greeting} {welcomeAddress.title}
+      {greeting} {addressWithTitle.title} {addressWithTitle.name} you live in{" "}
+      {addressWithTitle.city} {addressWithTitle.street}
     </div>
   );
 }

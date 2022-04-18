@@ -41,14 +41,12 @@ const App = () => {
   );
 };
 
-const Search = ({ search, onSearch }) => {
-  return (
-    <div>
-      <label htmlFor="search">Search: </label>
-      <input id="search" type="text" value={search} onChange={onSearch} />
-    </div>
-  );
-};
+const Search = ({ search, onSearch }) => (
+  <div>
+    <label htmlFor="search">Search: </label>
+    <input id="search" type="text" value={search} onChange={onSearch} />
+  </div>
+);
 
 const List = (props) =>
   props.list.map((item) => (

@@ -2,16 +2,20 @@ import React from "react";
 
 const Welcome = {
   greeting: "Hey",
-  title: "React!",
+  title: "Thomas!",
+};
+
+const Address = {
+  city: "Berlin",
+  street: "Kreuzberger Ring",
 };
 
 function App() {
-  const { greeting, title } = Welcome;
+  const welcomeAddress = { ...Welcome, ...Address };
+  console.log(welcomeAddress);
   return (
     <div>
-      <h1>
-        {greeting} {title}
-      </h1>
+      {welcomeAddress.greeting} {welcomeAddress.title}
     </div>
   );
 }

@@ -1,18 +1,17 @@
 import React from "react";
 
-const welcome = {
+const Welcome = {
   greeting: "Hey",
   title: "React!",
 };
 
 function App() {
+  const { greeting, title } = Welcome;
   return (
     <div>
       <h1>
-        {welcome.greeting} {welcome.title}
+        {greeting} {title}
       </h1>
-      <label htmlFor="search">Search: </label>
-      <input id="search" type="text" />
     </div>
   );
 }

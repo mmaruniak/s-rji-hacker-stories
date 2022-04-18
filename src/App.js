@@ -16,16 +16,16 @@ const App = () => {
   );
 };
 
-const CityInput = (props) => {
+const CityInput = ({ textChange }) => {
   return (
     <div>
-      <input type="text" id="idCity" onChange={props.textChange} />
+      <input type="text" id="idCity" onChange={textChange} />
     </div>
   );
 };
 
-const City = (props) => {
-  return <h2> my favourite city is {props.City}</h2>;
+const City = ({ City }) => {
+  return <h2> my favourite city is {City}</h2>;
 };
 
 export default App;

@@ -1,7 +1,9 @@
 import React from "react";
 
 const App = () => {
-  const [cityState, setCityState] = React.useState("");
+  const [cityState, setCityState] = React.useState(
+    localStorage.getItem("city") || "Turkana"
+  );
 
   const textChange = (event) => {
     setCityState(event.target.value);
@@ -13,7 +15,7 @@ const App = () => {
     <div>
       <h1>Set my favorite city </h1>
       <City City={cityState} />
-      <CityInput textChange={textChange} />
+      <CityInput textChange={textChange} value={cityState} />
     </div>
   );
 };
@@ -21,7 +23,12 @@ const App = () => {
 const CityInput = (props) => {
   return (
     <div>
-      <input type="text" id="idCity" onChange={props.textChange} />
+      <input
+        type="text"
+        id="idCity"
+        onChange={props.textChange}
+        value={props.value}
+      />
     </div>
   );
 };

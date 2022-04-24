@@ -7,6 +7,8 @@ const App = () => {
     setCityState(event.target.value);
   };
 
+  React.useEffect(() => localStorage.setItem("city", cityState), [cityState]);
+
   return (
     <div>
       <h1>Set my favorite city </h1>

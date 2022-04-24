@@ -21,11 +21,25 @@ const App = () => {
     },
   ];
 
-  const [searchTerm, setSearchTerm] = React.useState("React");
+  const [searchTerm, setSearchTerm] = React.useState(
+    localStorage.getItem("search") || "React"
+  );
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
+    localStorage.setItem("search", event.target.value);
   };
+
+  // called on initial rendering and when
+  // a property in the dependency array changes
+  // here: [searchTerm]
+  // an empty array will cause the useEffect
+  // hook to be called once
+  // leaving out the depency array will cause the useEffect
+  // hook to be called on every render operation
+  React.useEffect(() => {
+    localStorage.setItem("search", searchTerm);
+  }, [searchTerm]);
 
   const searchedStories = stories.filter((story) =>
     story.title.toLowerCase().includes(searchTerm.toLowerCase())

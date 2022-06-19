@@ -4,34 +4,37 @@ import "./App.css";
 const App = () => {
   const [personState, setPersonState] = React.useState({
     firstName: "Mike",
-    lastName: "Maischberger",
+    lastName: "",
+    zip: "",
+    city: "",
   });
 
   const onTextChange = (event) => {
     const { name, value } = event.target;
-    console.log("controlName" + name);
-    console.log("controlValue" + value);
     setPersonState({
       ...personState,
       [name]: value,
     });
-
-    console.log(personState);
   };
-
-  // const ButtonInput = ({ label }) => {
-  //   return (
-  //     <div className="buttonInput">
-  //       <input type="button" value={label} />
-  //     </div>
-  //   );
-  // };
 
   return (
     <div className="container">
       <h1> Please enter your personal information </h1>
       <PersonForm personState={personState} onTextChange={onTextChange} />
+      <Summary personState={personState} />
     </div>
+  );
+};
+
+const Summary = ({ personState }) => {
+  return (
+    <>
+      <h2> Summary </h2>
+      <span> {personState.firstName}</span>
+      <span> {personState.lastName}</span>
+      <span> {personState.zip}</span>
+      <span> {personState.city}</span>
+    </>
   );
 };
 
@@ -50,6 +53,20 @@ const PersonForm = ({ personState, onTextChange }) => {
         label="Last Name"
         name="lastName"
         value={personState.lastName}
+        onInputChange={onTextChange}
+      />
+      <LabelInput
+        id="txtZip"
+        label="Zip"
+        name="zip"
+        value={personState.zip}
+        onInputChange={onTextChange}
+      />
+      <LabelInput
+        id="txtCity"
+        label="City"
+        name="city"
+        value={personState.city}
         onInputChange={onTextChange}
       />
     </form>

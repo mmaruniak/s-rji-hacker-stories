@@ -8,28 +8,15 @@ const App = () => {
   });
 
   const onTextChange = (event) => {
-    var controlValue = event.target.value;
-    var controlName = event.target.name;
-
+    const { name, value } = event.target;
+    console.log("controlName" + name);
+    console.log("controlValue" + value);
     setPersonState({
       ...personState,
-      [controlName]: controlValue,
+      [name]: value,
     });
-  };
 
-  const LabelInput = ({ id, label, value, name, onInputChange }) => {
-    return (
-      <div className="labelInput">
-        <label htmlFor={id}>{label}</label>
-        <input
-          id={id}
-          name={name}
-          type="text"
-          value={value}
-          onChange={onInputChange}
-        ></input>
-      </div>
-    );
+    console.log(personState);
   };
 
   // const ButtonInput = ({ label }) => {
@@ -40,31 +27,46 @@ const App = () => {
   //   );
   // };
 
-  function PersonForm({ personState, onTextChange }) {
-    return (
-      <div>
-        <LabelInput
-          id="txtFirstName"
-          label="First Name"
-          name="firstName"
-          value={personState.firstName}
-          onInputChange={onTextChange}
-        />
-        <LabelInput
-          id="txtLastName"
-          label="Last Name"
-          name="lastName"
-          value={personState.lastName}
-          onInputChange={onTextChange}
-        />
-      </div>
-    );
-  }
-
   return (
     <div className="container">
       <h1> Please enter your personal information </h1>
       <PersonForm personState={personState} onTextChange={onTextChange} />
+    </div>
+  );
+};
+
+const PersonForm = ({ personState, onTextChange }) => {
+  return (
+    <form>
+      <LabelInput
+        id="txtFirstName"
+        label="First Name"
+        name="firstName"
+        value={personState.firstName}
+        onInputChange={onTextChange}
+      />
+      <LabelInput
+        id="txtLastName"
+        label="Last Name"
+        name="lastName"
+        value={personState.lastName}
+        onInputChange={onTextChange}
+      />
+    </form>
+  );
+};
+
+const LabelInput = ({ id, label, value, name, onInputChange }) => {
+  return (
+    <div className="labelInput">
+      <label htmlFor={id}>{label}</label>
+      <input
+        id={id}
+        name={name}
+        type="text"
+        value={value}
+        onChange={onInputChange}
+      ></input>
     </div>
   );
 };

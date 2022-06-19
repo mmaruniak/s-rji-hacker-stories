@@ -1,55 +1,72 @@
 import React from "react";
 import "./App.css";
 
-function App() {
-  const [personState, setPersonState] = React.useState("");
+const App = () => {
+  const [personState, setPersonState] = React.useState({
+    firstName: "Mike",
+    lastName: "Maischberger",
+  });
+
+  const onTextChange = (event) => {
+    var controlValue = event.target.value;
+    var controlName = event.target.name;
+
+    setPersonState({
+      ...personState,
+      [controlName]: controlValue,
+    });
+  };
+
+  const LabelInput = ({ id, label, value, name, onInputChange }) => {
+    return (
+      <div className="labelInput">
+        <label htmlFor={id}>{label}</label>
+        <input
+          id={id}
+          name={name}
+          type="text"
+          value={value}
+          onChange={onInputChange}
+        ></input>
+      </div>
+    );
+  };
+
+  // const ButtonInput = ({ label }) => {
+  //   return (
+  //     <div className="buttonInput">
+  //       <input type="button" value={label} />
+  //     </div>
+  //   );
+  // };
+
+  function PersonForm({ personState, onTextChange }) {
+    return (
+      <div>
+        <LabelInput
+          id="txtFirstName"
+          label="First Name"
+          name="firstName"
+          value={personState.firstName}
+          onInputChange={onTextChange}
+        />
+        <LabelInput
+          id="txtLastName"
+          label="Last Name"
+          name="lastName"
+          value={personState.lastName}
+          onInputChange={onTextChange}
+        />
+      </div>
+    );
+  }
 
   return (
     <div className="container">
       <h1> Please enter your personal information </h1>
-      <PersonForm />
+      <PersonForm personState={personState} onTextChange={onTextChange} />
     </div>
   );
-}
-
-const onInputChange = () => {
-  alert("InputChanged");
 };
-
-function LabelInput({ label, value, onInputChange }) {
-  return (
-    <div className="labelInput">
-      <label htmlFor="textInput"> {label}</label>
-      <input
-        id="textInput"
-        type="text"
-        value={value}
-        onChange={onInputChange}
-      ></input>
-    </div>
-  );
-}
-
-function ButtonInput({ label }) {
-  return (
-    <div className="buttonInput">
-      <input type="button" value={label} />
-    </div>
-  );
-}
-
-function PersonForm({ label }) {
-  return (
-    <div>
-      <LabelInput label="First Name" value="" />
-      <LabelInput label="Last Name" value="" />
-      <LabelInput label="Date of Birth" value="" />
-      <LabelInput label="City of Birth" value="" />
-      <LabelInput label="Zip" value="" />
-      <LabelInput label="City" value="" />
-      <ButtonInput label="Submit" />
-    </div>
-  );
-}
 
 export default App;

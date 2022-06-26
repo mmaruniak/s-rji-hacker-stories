@@ -1,8 +1,6 @@
 import React from "react";
 
 function App() {
-  const [cityState, setCityState] = React.useState("");
-
   const [personState, setPersonState] = React.useState({
     firstName: "",
     lastName: "",
@@ -29,7 +27,7 @@ function App() {
 
 const Header = ({ headerText }) => <h1>{headerText}</h1>;
 
-const PersonForm = ({ personState, onTextChange }) => {
+const PersonForm = ({ personState, onInputChange }) => {
   return (
     <div>
       <LabelInput
@@ -37,28 +35,28 @@ const PersonForm = ({ personState, onTextChange }) => {
         label="First Name"
         name="firstName"
         value={personState.firstName}
-        onInputChange={onTextChange}
+        onInputChange={onInputChange}
       />
       <LabelInput
         id="txtLastName"
         label="Last Name"
         name="lastName"
         value={personState.lastName}
-        onInputChange={onTextChange}
+        onInputChange={onInputChange}
       />
       <LabelInput
         id="txtZip"
         label="Zip"
         name="zip"
         value={personState.zip}
-        onInputChange={onTextChange}
+        onInputChange={onInputChange}
       />
       <LabelInput
         id="txtCity"
         label="City"
         name="city"
         value={personState.city}
-        onInputChange={onTextChange}
+        onInputChange={onInputChange}
       />
     </div>
   );

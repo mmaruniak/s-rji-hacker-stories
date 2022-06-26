@@ -3,10 +3,17 @@ import React from "react";
 function App() {
   const [cityState, setCityState] = React.useState("");
 
+  const [personState, setPersonState] = React.useState({
+    firstName: "",
+    lastName: "",
+    zip: "",
+    city: "",
+  });
+
   return (
     <div>
       <Header headerText="Please enter your personal information" />
-      <PersonForm />
+      <PersonForm personState={personState} onInputChange={onInputChange} />
       <Summary />
     </div>
   );
@@ -14,8 +21,54 @@ function App() {
 
 const Header = ({ headerText }) => <h1>{headerText}</h1>;
 
-const PersonForm = () => {
-  return <h2> PersonForm</h2>;
+const PersonForm = ({ personState, onTextChange }) => {
+  return (
+    <div>
+      <LabelInput
+        id="txtFirstName"
+        label="First Name"
+        name="firstName"
+        value={personState.firstName}
+        onInputChange={onTextChange}
+      />
+      <LabelInput
+        id="txtLastName"
+        label="Last Name"
+        name="lastName"
+        value={personState.lastName}
+        onInputChange={onTextChange}
+      />
+      <LabelInput
+        id="txtZip"
+        label="Zip"
+        name="zip"
+        value={personState.zip}
+        onInputChange={onTextChange}
+      />
+      <LabelInput
+        id="txtCity"
+        label="City"
+        name="city"
+        value={personState.city}
+        onInputChange={onTextChange}
+      />
+    </div>
+  );
+};
+
+const LabelInput = ({ id, label, value, name, onInputChange }) => {
+  return (
+    <div className="labelInput">
+      <label htmlFor={id}>{label}</label>
+      <input
+        id={id}
+        name={name}
+        type="text"
+        value={value}
+        onChange={onInputChange}
+      ></input>
+    </div>
+  );
 };
 
 const Summary = () => {

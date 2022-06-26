@@ -10,6 +10,14 @@ function App() {
     city: "",
   });
 
+  const onInputChange = (event) => {
+    const { name, value } = event.target;
+    setPersonState({
+      ...personState,
+      [name]: value,
+    });
+  };
+
   return (
     <div>
       <Header headerText="Please enter your personal information" />

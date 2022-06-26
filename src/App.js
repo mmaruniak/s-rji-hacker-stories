@@ -19,24 +19,14 @@ const App = () => {
 
   return (
     <div className="container">
-      <h1> Please enter your personal information </h1>
+      <Header headerText="Please enter your personal information"></Header>
       <PersonForm personState={personState} onTextChange={onTextChange} />
       <Summary personState={personState} />
     </div>
   );
 };
 
-const Summary = ({ personState }) => {
-  return (
-    <>
-      <h2> Summary </h2>
-      <span> {personState.firstName}</span>
-      <span> {personState.lastName}</span>
-      <span> {personState.zip}</span>
-      <span> {personState.city}</span>
-    </>
-  );
-};
+const Header = ({ headerText }) => <h1>{headerText}</h1>;
 
 const PersonForm = ({ personState, onTextChange }) => {
   return (
@@ -85,6 +75,18 @@ const LabelInput = ({ id, label, value, name, onInputChange }) => {
         onChange={onInputChange}
       ></input>
     </div>
+  );
+};
+
+const Summary = ({ personState }) => {
+  return (
+    <>
+      <h2> Summary </h2>
+      <span> {personState.firstName}</span>
+      <span> {personState.lastName}</span>
+      <span> {personState.zip}</span>
+      <span> {personState.city}</span>
+    </>
   );
 };
 

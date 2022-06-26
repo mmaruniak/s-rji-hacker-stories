@@ -5,14 +5,21 @@ function App() {
 
   return (
     <div>
-      <h1>Set my favorite city </h1>
-      <City />
+      <Header headerText="Please enter your personal information" />
+      <PersonForm />
+      <Summary />
     </div>
   );
 }
 
-function City() {
-  return <h2> my favourite city is London</h2>;
-}
+const Header = ({ headerText }) => <h1>{headerText}</h1>;
+
+const PersonForm = () => {
+  return <h2> PersonForm</h2>;
+};
+
+const Summary = () => {
+  return <h2> Summary</h2>;
+};
 
 export default App;

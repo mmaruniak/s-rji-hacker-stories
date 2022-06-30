@@ -35,7 +35,7 @@ const App = () => {
   // an empty array will cause the useEffect
   // hook to be called once
   // leaving out the depency array will cause the useEffect
-  // hook to be called on every render operation
+  // hook to be called on every render operation 
   React.useEffect(() => {
     localStorage.setItem("search", searchTerm);
   }, [searchTerm]);
